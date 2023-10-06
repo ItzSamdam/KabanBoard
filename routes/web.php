@@ -14,5 +14,44 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+
+    Route::get('/boards/{board?}', [BoardController::class, 'show'])->name('boards');
+
+    Route::post('/boards/{board}/columns', BoardColumnCreateController::class)
+        ->name('boards.columns.store');
+
+    Route::delete('/columns/{column}', ColumnDestroyController::class)
+        ->name('columns.destroy');
+
+    Route::post('/columns/{column}/cards', ColumnCardCreateController::class)
+        ->name('columns.cards.store');
+
+    Route::put('/columns/{column}/cards/{card}', ColumnCardUpdateController::class)
+        ->scopeBindings()->name('columns.cards.update');
+
+    Route::delete('/columns/{column}/cards/{card}', ColumnCardDestroyController::class)
+        ->scopeBindings()->name('columns.cards.destroy');
+
+    Route::put('/cards/reorder', CardsReorderUpdateController::class)
+        ->name('cards.reorder');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__ . '/auth.php';
