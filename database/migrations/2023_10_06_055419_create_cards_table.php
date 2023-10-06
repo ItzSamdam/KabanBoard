@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
+            $table->string('content')->nullable();
+            $table->integer('position');
+            $table->foreignId('column_id')->constrained();
             $table->timestamps();
         });
     }
