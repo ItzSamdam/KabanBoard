@@ -1,6 +1,16 @@
 <?php
 
+use App\Http\Controllers\ColumnCardUpdateController;
+use App\Http\Controllers\ColumnCardDestroyController;
+use App\Http\Controllers\ColumnCardCreateController;
+use App\Http\Controllers\CardsReorderUpdateController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
+use App\Http\Controllers\BoardController;
+use App\Http\Controllers\ColumnDestroyController;
+use App\Http\Controllers\BoardColumnCreateController;
 
 /*
 |--------------------------------------------------------------------------
