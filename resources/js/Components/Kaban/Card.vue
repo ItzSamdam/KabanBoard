@@ -4,7 +4,7 @@ import { router, useForm } from '@inertiajs/vue3';
 import { PencilIcon } from '@heroicons/vue/24/solid';
 import { TrashIcon } from '@heroicons/vue/24/solid';
 import { useEditCard } from '@/Composables/useEditCard';
-import ConfirmDialog from '@/Components/Kanban/ConfirmDialog.vue';
+import ConfirmDialog from '@/Components/Kaban/ConfirmDialog.vue';
 
 const props = defineProps({
     card: Object,

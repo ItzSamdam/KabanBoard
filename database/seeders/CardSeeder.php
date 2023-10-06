@@ -15,6 +15,7 @@ class CardSeeder extends Seeder
     {
         Card::factory(5)->create([
             'column_id' => $column,
+            'position' => fake()->unique()->numberBetween(1, 5),
         ]);
     }
 }

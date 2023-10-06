@@ -15,9 +15,13 @@ class BoardSeeder extends Seeder
     public function run($userId): void
     {
         Board::factory()->create([
+            'title' => fake()->company() . ' Board',
             'user_id' => $userId,
         ])->each(function ($board) {
-            $this->callWith(ColumnSeeder::class, ['board' => $board->id]);
+            $this->callWith(ColumnSeeder::class, [
+                'board' => $board->id,
+                'title' => fake()->userName()
+            ]);
 
             Column::all()->each(function ($column) {
                 $this->callWith(CardSeeder::class, ['column' => $column->id]);

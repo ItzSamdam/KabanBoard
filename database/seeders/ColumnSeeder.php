@@ -11,9 +11,10 @@ class ColumnSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run($board): void
+    public function run($board, $title): void
     {
         Column::factory(3)->create([
+            'title' => $title,
             'board_id' => $board,
         ]);
     }

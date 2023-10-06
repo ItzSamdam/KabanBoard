@@ -3,10 +3,10 @@ import { computed, nextTick, ref, watch } from 'vue';
 import { router } from '@inertiajs/vue3';
 import cloneDeep from 'lodash.clonedeep';
 import Draggable from 'vuedraggable';
-import Card from '@/Components/Kanban/Card.vue';
-import CardCreate from '@/Components/Kanban/CardCreate.vue';
-import ConfirmDialog from '@/Components/Kanban/ConfirmDialog.vue';
-import MenuDropDown from '@/Components/Kanban/MenuDropDown.vue';
+import Card from '@/Components/Kaban/Card.vue';
+import CardCreate from '@/Components/Kaban/CardCreate.vue';
+import ConfirmDialog from '@/Components/Kaban/ConfirmDialog.vue';
+import MenuDropDown from '@/Components/Kaban/MenuDropDown.vue';
 
 const props = defineProps({
     board: Number,

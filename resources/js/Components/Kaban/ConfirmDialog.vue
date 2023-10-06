@@ -1,5 +1,5 @@
 <script setup>
-import Dialog from '@/Components/Kanban/Dialog.vue';
+import Dialog from '@/Components/Kaban/Dialog.vue';
 
 const props = defineProps({
     confirmLabel: String,

@@ -2,8 +2,8 @@
 import { computed, ref } from 'vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, router } from '@inertiajs/vue3';
-import Column from '@/Components/Kanban/Column.vue';
-import ColumnCreate from '@/Components/Kanban/ColumnCreate.vue';
+import Column from '@/Components/Kaban/Column.vue';
+import ColumnCreate from '@/Components/Kaban/ColumnCreate.vue';
 
 const props = defineProps({
   board: Object,
